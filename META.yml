@@ -32,25 +32,30 @@ no_index:
 provides:
   Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
     file: lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm
-    version: '0.001'
+    version: '0.002'
 requires:
   Dist::Zilla::Plugin::ModuleBuild: '0'
   Dist::Zilla::Plugin::ModuleBuildTiny: '0'
+  Dist::Zilla::Role::BeforeBuild: '0'
   Dist::Zilla::Role::BuildPL: '0'
+  Dist::Zilla::Role::FileGatherer: '0'
   Dist::Zilla::Role::PrereqSource: '0'
   List::Util: '0'
   Moose: '0'
   MooseX::Types: '0'
   MooseX::Types::Moose: '0'
+  Scalar::Util: '0'
   namespace::autoclean: '0'
   perl: '5.006'
   strict: '0'
   warnings: '0'
 resources:
+  IRC: irc://irc.perl.org/#distzilla
+  MailingList: http://dzil.org/#mailing-list
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git
-version: '0.001'
+version: '0.002'
 x_Dist_Zilla:
   perl:
     version: '5.019011'
@@ -392,7 +397,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Prereqs::AuthorDeps
       name: '@Author::ETHER/Prereqs::AuthorDeps'
-      version: '0.002'
+      version: '0.003'
     -
       class: Dist::Zilla::Plugin::MinimumPerl
       name: '@Author::ETHER/MinimumPerl'
@@ -537,7 +542,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.001
+          tag: v0.002
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
@@ -575,6 +580,10 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@Author::ETHER/ConfirmRelease'
+      version: '5.019'
+    -
+      class: Dist::Zilla::Plugin::MetaResources
+      name: MetaResources
       version: '5.019'
     -
       class: Dist::Zilla::Plugin::Prereqs

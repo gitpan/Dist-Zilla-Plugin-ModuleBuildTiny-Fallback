@@ -10,6 +10,7 @@ my @files = (
     'lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm',
     't/00-report-prereqs.t',
     't/01-basic.t',
+    't/02-two-plugins.t',
     'xt/author/00-compile.t',
     'xt/author/pod-spell.t',
     'xt/release/changes_has_content.t',

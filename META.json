@@ -37,11 +37,12 @@
             "Dist::Zilla::PluginBundle::Author::ETHER" : "0.064"
          },
          "requires" : {
-            "Dist::Zilla" : "5.019",
+            "Dist::Zilla" : "5",
             "Dist::Zilla::Plugin::Bootstrap::lib" : "0",
             "Dist::Zilla::Plugin::GitHub::Update" : "0",
             "Dist::Zilla::Plugin::GithubMeta" : "0",
             "Dist::Zilla::Plugin::MakeMaker::Fallback" : "0.008",
+            "Dist::Zilla::Plugin::MetaResources" : "0",
             "Dist::Zilla::Plugin::ModuleBuildTiny::Fallback" : "0",
             "Dist::Zilla::Plugin::MungeFile::WithDataSection" : "0.003",
             "Dist::Zilla::Plugin::Prereqs" : "0",
@@ -66,12 +67,15 @@
          "requires" : {
             "Dist::Zilla::Plugin::ModuleBuild" : "0",
             "Dist::Zilla::Plugin::ModuleBuildTiny" : "0",
+            "Dist::Zilla::Role::BeforeBuild" : "0",
             "Dist::Zilla::Role::BuildPL" : "0",
+            "Dist::Zilla::Role::FileGatherer" : "0",
             "Dist::Zilla::Role::PrereqSource" : "0",
             "List::Util" : "0",
             "Moose" : "0",
             "MooseX::Types" : "0",
             "MooseX::Types::Moose" : "0",
+            "Scalar::Util" : "0",
             "namespace::autoclean" : "0",
             "perl" : "5.006",
             "strict" : "0",
@@ -100,7 +104,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::ModuleBuildTiny::Fallback" : {
          "file" : "lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
@@ -114,9 +118,11 @@
          "type" : "git",
          "url" : "https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git",
          "web" : "https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback"
-      }
+      },
+      "x_IRC" : "irc://irc.perl.org/#distzilla",
+      "x_MailingList" : "http://dzil.org/#mailing-list"
    },
-   "version" : "0.001",
+   "version" : "0.002",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.019011"
@@ -559,7 +565,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Prereqs::AuthorDeps",
             "name" : "@Author::ETHER/Prereqs::AuthorDeps",
-            "version" : "0.002"
+            "version" : "0.003"
          },
          {
             "class" : "Dist::Zilla::Plugin::MinimumPerl",
@@ -754,7 +760,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.001",
+                  "tag" : "v0.002",
                   "tag_format" : "v%v%t",
                   "tag_message" : "v%v%t",
                   "time_zone" : "local"
@@ -806,6 +812,11 @@
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@Author::ETHER/ConfirmRelease",
+            "version" : "5.019"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::MetaResources",
+            "name" : "MetaResources",
             "version" : "5.019"
          },
          {

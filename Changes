@@ -1,4 +1,9 @@
 Revision history for Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
 
+0.002     2014-05-23 07:47:57Z
+          - minor doc fixes
+          - handle some potential future changes to [ModuleBuild],
+            [ModuleBuildTiny]
+
 0.001     2014-05-22 07:31:17Z
           - Initial release.
