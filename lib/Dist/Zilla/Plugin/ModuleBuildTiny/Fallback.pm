@@ -4,8 +4,8 @@ package Dist::Zilla::Plugin::ModuleBuildTiny::Fallback;
 BEGIN {
   $Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::AUTHORITY = 'cpan:ETHER';
 }
-# git description: v0.001-5-g1bd0b13
-$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.002';
+# git description: v0.002-3-g019c8ed
+$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.003';
 # ABSTRACT: Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed
 # vim: set ts=8 sw=4 tw=78 et :
 
@@ -75,7 +75,11 @@ sub gather_files
 sub register_prereqs
 {
     my $self = shift;
-    $_->register_prereqs foreach $self->plugins;
+
+    # we don't need MB's configure_requires because if Module::Build runs,
+    # configure_requires wasn't being respected anyway
+    my ($mb, $mbt) = $self->plugins;
+    $mbt->register_prereqs;
 }
 
 sub setup_installer
@@ -255,7 +259,7 @@ Dist::Zilla::Plugin::ModuleBuildTiny::Fallback - Build a Build.PL that uses Modu
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

@@ -5,7 +5,6 @@ author:
 build_requires:
   ExtUtils::MakeMaker: '0'
   File::Spec::Functions: '0'
-  Module::Build: '0.3601'
   Path::Tiny: '0'
   Test::DZil: '0'
   Test::Deep: '0'
@@ -16,7 +15,6 @@ build_requires:
   version: '0'
 configure_requires:
   ExtUtils::MakeMaker: '6.30'
-  Module::Build: '0.3601'
   Module::Build::Tiny: '0.036'
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170'
@@ -32,7 +30,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
     file: lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm
-    version: '0.002'
+    version: '0.003'
 requires:
   Dist::Zilla::Plugin::ModuleBuild: '0'
   Dist::Zilla::Plugin::ModuleBuildTiny: '0'
@@ -55,10 +53,10 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git
-version: '0.002'
+version: '0.003'
 x_Dist_Zilla:
   perl:
-    version: '5.019011'
+    version: '5.020000'
   plugins:
     -
       class: Dist::Zilla::Plugin::Bootstrap::lib
@@ -70,13 +68,6 @@ x_Dist_Zilla:
           try_built_method: mtime
       name: Bootstrap::lib
       version: '1.000001'
-    -
-      class: Dist::Zilla::Plugin::ModuleBuildTiny::Fallback
-      config:
-        Dist::Zilla::Role::TestRunner:
-          default_jobs: 1
-      name: ModuleBuildTiny::Fallback
-      version: ~
     -
       class: Dist::Zilla::Plugin::MungeFile::WithDataSection
       config:
@@ -433,6 +424,13 @@ x_Dist_Zilla:
       name: '@Author::ETHER/MakeMaker::Fallback'
       version: '0.009'
     -
+      class: Dist::Zilla::Plugin::ModuleBuildTiny::Fallback
+      config:
+        Dist::Zilla::Role::TestRunner:
+          default_jobs: 9
+      name: '@Author::ETHER/ModuleBuildTiny::Fallback'
+      version: ~
+    -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Author::ETHER/InstallGuide'
       version: '1.200003'
@@ -482,7 +480,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Remote::Check
       name: '@Author::ETHER/Git::Remote::Check'
-      version: 0.1.2
+      version: 0.2.0
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@Author::ETHER/CheckPrereqsIndexed'
@@ -542,7 +540,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.002
+          tag: v0.003
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local

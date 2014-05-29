@@ -9,7 +9,6 @@ use warnings;
 BEGIN {
 my %configure_requires = (
     'ExtUtils::MakeMaker' => '6.30',
-    'Module::Build' => '0.3601',
     'Module::Build::Tiny' => '0.036',
 );
 
@@ -71,12 +70,9 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed",
   "AUTHOR" => "Karen Etheridge <ether\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Module::Build" => "0.3601"
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30",
-    "Module::Build" => "0.3601",
     "Module::Build::Tiny" => "0.036"
   },
   "DISTNAME" => "Dist-Zilla-Plugin-ModuleBuildTiny-Fallback",
@@ -111,7 +107,7 @@ my %WriteMakefileArgs = (
     "if" => 0,
     "version" => 0
   },
-  "VERSION" => "0.002",
+  "VERSION" => "0.003",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -128,7 +124,6 @@ my %FallbackPrereqs = (
   "ExtUtils::MakeMaker" => 0,
   "File::Spec::Functions" => 0,
   "List::Util" => 0,
-  "Module::Build" => "0.3601",
   "Moose" => 0,
   "MooseX::Types" => 0,
   "MooseX::Types::Moose" => 0,

@@ -54,12 +54,9 @@ EOW
 
 
     my %module_build_args = (
-      "build_requires" => {
-        "Module::Build" => "0.3601"
-      },
+      "build_requires" => {},
       "configure_requires" => {
         "ExtUtils::MakeMaker" => "6.30",
-        "Module::Build" => "0.3601",
         "Module::Build::Tiny" => "0.036"
       },
       "dist_abstract" => "Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed",
@@ -67,7 +64,7 @@ EOW
         "Karen Etheridge <ether\@cpan.org>"
       ],
       "dist_name" => "Dist-Zilla-Plugin-ModuleBuildTiny-Fallback",
-      "dist_version" => "0.002",
+      "dist_version" => "0.003",
       "license" => "perl",
       "module_name" => "Dist::Zilla::Plugin::ModuleBuildTiny::Fallback",
       "recommends" => {},
@@ -108,7 +105,6 @@ EOW
     my %fallback_build_requires = (
       "ExtUtils::MakeMaker" => 0,
       "File::Spec::Functions" => 0,
-      "Module::Build" => "0.3601",
       "Path::Tiny" => 0,
       "Test::DZil" => 0,
       "Test::Deep" => 0,

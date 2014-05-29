@@ -34,7 +34,7 @@ sub _merge_requires {
 }
 
 my %include = map {; $_ => 1 } qw(
-
+  Module::Build
 );
 
 my %exclude = map {; $_ => 1 } qw(
@@ -43,15 +43,9 @@ my %exclude = map {; $_ => 1 } qw(
 
 # Add static prereqs to the included modules list
 my $static_prereqs = do { my $x = {
-       'build' => {
-                    'requires' => {
-                                    'Module::Build' => '0.3601'
-                                  }
-                  },
        'configure' => {
                         'requires' => {
                                         'ExtUtils::MakeMaker' => '6.30',
-                                        'Module::Build' => '0.3601',
                                         'Module::Build::Tiny' => '0.036'
                                       }
                       },
