@@ -17,7 +17,7 @@ configure_requires:
   ExtUtils::MakeMaker: '6.30'
   Module::Build::Tiny: '0.036'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170'
+generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141520'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -30,7 +30,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
     file: lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm
-    version: '0.003'
+    version: '0.004'
 requires:
   Dist::Zilla::Plugin::ModuleBuild: '0'
   Dist::Zilla::Plugin::ModuleBuildTiny: '0'
@@ -53,7 +53,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git
-version: '0.003'
+version: '0.004'
 x_Dist_Zilla:
   perl:
     version: '5.020000'
@@ -181,7 +181,7 @@ x_Dist_Zilla:
             - ':ExecFiles'
             - '@Author::ETHER/Examples'
       name: '@Author::ETHER/Test::Compile'
-      version: '2.040'
+      version: '2.042'
     -
       class: Dist::Zilla::Plugin::Test::NoTabs
       config:
@@ -540,7 +540,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.003
+          tag: v0.004
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local

@@ -4,7 +4,7 @@
       "Karen Etheridge <ether@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170",
+   "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141520",
    "license" : [
       "perl_5"
    ],
@@ -98,7 +98,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::ModuleBuildTiny::Fallback" : {
          "file" : "lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       }
    },
    "release_status" : "stable",
@@ -116,7 +116,7 @@
       "x_IRC" : "irc://irc.perl.org/#distzilla",
       "x_MailingList" : "http://dzil.org/#mailing-list"
    },
-   "version" : "0.003",
+   "version" : "0.004",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.020000"
@@ -284,7 +284,7 @@
                }
             },
             "name" : "@Author::ETHER/Test::Compile",
-            "version" : "2.040"
+            "version" : "2.042"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::NoTabs",
@@ -754,7 +754,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.003",
+                  "tag" : "v0.004",
                   "tag_format" : "v%v%t",
                   "tag_message" : "v%v%t",
                   "time_zone" : "local"

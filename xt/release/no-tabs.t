@@ -11,6 +11,7 @@ my @files = (
     't/00-report-prereqs.t',
     't/01-basic.t',
     't/02-two-plugins.t',
+    't/03-arguments.t',
     'xt/author/00-compile.t',
     'xt/author/pod-spell.t',
     'xt/release/changes_has_content.t',

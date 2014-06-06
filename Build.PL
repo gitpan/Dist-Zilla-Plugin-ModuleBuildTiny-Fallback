@@ -64,7 +64,7 @@ EOW
         "Karen Etheridge <ether\@cpan.org>"
       ],
       "dist_name" => "Dist-Zilla-Plugin-ModuleBuildTiny-Fallback",
-      "dist_version" => "0.003",
+      "dist_version" => "0.004",
       "license" => "perl",
       "module_name" => "Dist::Zilla::Plugin::ModuleBuildTiny::Fallback",
       "recommends" => {},
