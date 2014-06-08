@@ -4,8 +4,8 @@ package Dist::Zilla::Plugin::ModuleBuildTiny::Fallback;
 BEGIN {
   $Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::AUTHORITY = 'cpan:ETHER';
 }
-# git description: v0.003-1-g37f53d3
-$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.004';
+# git description: v0.004-2-g354b25b
+$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.005';
 # ABSTRACT: Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed
 # vim: set ts=8 sw=4 tw=78 et :
 
@@ -24,7 +24,13 @@ use List::Util 'first';
 use Scalar::Util 'blessed';
 use namespace::autoclean;
 
-has [qw(mb_version mbt_version)] => (
+has mb_version => (
+    is  => 'ro', isa => 'Str',
+    # <mst> 0.28 is IIRC when install_base changed incompatibly
+    default => '0.28',
+);
+
+has mbt_version => (
     is  => 'ro', isa => 'Str',
 );
 
@@ -36,7 +42,7 @@ has plugins => (
         my @plugins = @{ $self->zilla->plugins };
         my %args = ( plugin_name => 'ModuleBuildTiny::Fallback', zilla => $self->zilla );
         [
-            Dist::Zilla::Plugin::ModuleBuild->new(%args, $self->mb_version ? ( mb_version => $self->mb_version ) : ()),
+            Dist::Zilla::Plugin::ModuleBuild->new(%args, mb_version => $self->mb_version),
             Dist::Zilla::Plugin::ModuleBuildTiny->new(%args, $self->mbt_version ? ( version => $self->mbt_version ) : ()),
         ]
     },
@@ -104,7 +110,7 @@ sub setup_installer
     my $mb_content = $mb_build_pl->content;
 
     # comment out the 'use' line; save the required version
-    $mb_content =~ s/This (?:Build.PL|file) /This section was /m;
+    $mb_content =~ s/This (?:Build.PL|file) /This section /m;
     $mb_content =~ s/^use (Module::Build) ([\d.]+);/require $1; $1->VERSION($2);/m;
     $mb_content =~ s/^(?!$)/    /mg;
 
@@ -120,7 +126,7 @@ sub setup_installer
     # comment out the 'use' line; save the required version
     $mbt_content =~ s/^(use Module::Build::Tiny ([\d.]+);)$/# $1/m;
     my $mbt_version = $2;
-    $mbt_content =~ s/This (?:Build.PL|file) /This section was /m;
+    $mbt_content =~ s/This (?:Build.PL|file) /This section /m;
     $mbt_content =~ s/^(?!$)/    /mg;
 
     my $message = join('', <DATA>);
@@ -225,13 +231,15 @@ __PACKAGE__->meta->make_immutable;
 #pod
 #pod =head2 mb_version
 #pod
-#pod Optional.
-#pod Passed to L<[ModuleBuild]|Dist::Zilla::Plugin::ModuleBuild>.
+#pod Optional. Specifies the minimum version of L<Module::Build> needed for proper
+#pod fallback execution. Defaults to 0.28.
 #pod
 #pod =head2 mbt_version
 #pod
 #pod Optional.
-#pod Passed to L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny> as C<version>.
+#pod Passed to L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny> as C<version>:
+#pod the minimum version of L<Module::Build::Tiny> to depend on (in
+#pod C<configure_requires> as well as a C<use> assertion in F<Build.PL>).
 #pod
 #pod =head1 SUPPORT
 #pod
@@ -269,7 +277,7 @@ Dist::Zilla::Plugin::ModuleBuildTiny::Fallback - Build a Build.PL that uses Modu
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -343,13 +351,15 @@ F<Build.PL> for the distribution.
 
 =head2 mb_version
 
-Optional.
-Passed to L<[ModuleBuild]|Dist::Zilla::Plugin::ModuleBuild>.
+Optional. Specifies the minimum version of L<Module::Build> needed for proper
+fallback execution. Defaults to 0.28.
 
 =head2 mbt_version
 
 Optional.
-Passed to L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny> as C<version>.
+Passed to L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny> as C<version>:
+the minimum version of L<Module::Build::Tiny> to depend on (in
+C<configure_requires> as well as a C<use> assertion in F<Build.PL>).
 
 =head1 SUPPORT
 
