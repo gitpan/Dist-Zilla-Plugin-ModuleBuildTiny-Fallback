@@ -2,7 +2,7 @@ do { my $x = {
        'configure' => {
                         'requires' => {
                                         'ExtUtils::MakeMaker' => '0',
-                                        'Module::Build::Tiny' => '0.037'
+                                        'Module::Build::Tiny' => '0.038'
                                       }
                       },
        'develop' => {
@@ -12,6 +12,7 @@ do { my $x = {
                       'requires' => {
                                       'Dist::Zilla' => '5',
                                       'Dist::Zilla::Plugin::Authority' => '0',
+                                      'Dist::Zilla::Plugin::AuthorityFromModule' => '0.002',
                                       'Dist::Zilla::Plugin::AutoMetaResources' => '0',
                                       'Dist::Zilla::Plugin::AutoPrereqs' => '0',
                                       'Dist::Zilla::Plugin::Bootstrap::lib' => '0',
@@ -51,7 +52,7 @@ do { my $x = {
                                       'Dist::Zilla::Plugin::MetaTests' => '0',
                                       'Dist::Zilla::Plugin::MetaYAML' => '0',
                                       'Dist::Zilla::Plugin::MinimumPerl' => '0',
-                                      'Dist::Zilla::Plugin::ModuleBuildTiny::Fallback' => '0.005',
+                                      'Dist::Zilla::Plugin::ModuleBuildTiny::Fallback' => '0.006',
                                       'Dist::Zilla::Plugin::MojibakeTests' => '0',
                                       'Dist::Zilla::Plugin::MungeFile::WithDataSection' => '0.003',
                                       'Dist::Zilla::Plugin::NextRelease' => '4.300018',

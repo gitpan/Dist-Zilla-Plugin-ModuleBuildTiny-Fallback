@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::ModuleBuildTiny::Fallback;
-# git description: v0.005-11-gdcebf3a
-$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.006';
+# git description: v0.006-1-g2cddc76
+$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.007';
 # ABSTRACT: Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed
 # KEYWORDS: plugin installer Module::Build Build.PL toolchain legacy ancient backcompat
 # vim: set ts=8 sw=4 tw=78 et :
@@ -38,7 +38,11 @@ has plugins => (
     default => sub {
         my $self = shift;
         my @plugins = @{ $self->zilla->plugins };
-        my %args = ( plugin_name => 'ModuleBuildTiny::Fallback', zilla => $self->zilla, default_jobs => $self->default_jobs );
+        my %args = (
+            plugin_name => 'ModuleBuildTiny::Fallback',
+            zilla => $self->zilla,
+            $self->can('default_jobs') ? ( default_jobs => $self->default_jobs ) : (),
+        );
         [
             Dist::Zilla::Plugin::ModuleBuild->new(%args, mb_version => $self->mb_version),
             Dist::Zilla::Plugin::ModuleBuildTiny->new(%args, $self->mbt_version ? ( version => $self->mbt_version ) : ()),
@@ -297,7 +301,7 @@ Dist::Zilla::Plugin::ModuleBuildTiny::Fallback - Build a Build.PL that uses Modu
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 

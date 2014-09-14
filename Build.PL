@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-if (eval 'use Module::Build::Tiny 0.037; 1')
+if (eval 'use Module::Build::Tiny 0.038; 1')
 {
     print "Congratulations, your toolchain understands 'configure_requires'!\n\n";
 
@@ -12,7 +12,7 @@ if (eval 'use Module::Build::Tiny 0.037; 1')
     use warnings;
 
     use 5.006;
-    # use Module::Build::Tiny 0.037;
+    # use Module::Build::Tiny 0.038;
     Build_PL();
 }
 else
@@ -63,14 +63,14 @@ EOW
       "build_requires" => {},
       "configure_requires" => {
         "ExtUtils::MakeMaker" => 0,
-        "Module::Build::Tiny" => "0.037"
+        "Module::Build::Tiny" => "0.038"
       },
       "dist_abstract" => "Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed",
       "dist_author" => [
         "Karen Etheridge <ether\@cpan.org>"
       ],
       "dist_name" => "Dist-Zilla-Plugin-ModuleBuildTiny-Fallback",
-      "dist_version" => "0.006",
+      "dist_version" => "0.007",
       "license" => "perl",
       "module_name" => "Dist::Zilla::Plugin::ModuleBuildTiny::Fallback",
       "recommends" => {},
