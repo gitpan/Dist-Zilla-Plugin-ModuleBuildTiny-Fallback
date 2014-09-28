@@ -15,7 +15,7 @@ configure_requires:
   ExtUtils::MakeMaker: '0'
   Module::Build::Tiny: '0.038'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060'
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142690'
 keywords:
   - plugin
   - installer
@@ -37,7 +37,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
     file: lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm
-    version: '0.007'
+    version: '0.008'
 requires:
   Dist::Zilla::Plugin::ModuleBuild: '0'
   Dist::Zilla::Plugin::ModuleBuildTiny: '0'
@@ -60,7 +60,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git
-version: '0.007'
+version: '0.008'
 x_Dist_Zilla:
   perl:
     version: '5.021003'
@@ -114,7 +114,7 @@ x_Dist_Zilla:
           phase: build
           skip: []
       name: '@Author::ETHER/stale modules, build'
-      version: '0.026'
+      version: '0.027'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -125,7 +125,7 @@ x_Dist_Zilla:
           phase: release
           skip: []
       name: '@Author::ETHER/stale modules, release'
-      version: '0.026'
+      version: '0.027'
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Author::ETHER/ExecDir'
@@ -481,7 +481,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 9
       name: '@Author::ETHER/ModuleBuildTiny::Fallback'
-      version: '0.006'
+      version: '0.008'
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Author::ETHER/InstallGuide'
@@ -612,7 +612,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.007
+          tag: v0.008
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local

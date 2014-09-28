@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::ModuleBuildTiny::Fallback;
-# git description: v0.006-1-g2cddc76
-$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.007';
+# git description: v0.007-3-g19b0f41
+$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.008';
 # ABSTRACT: Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed
 # KEYWORDS: plugin installer Module::Build Build.PL toolchain legacy ancient backcompat
 # vim: set ts=8 sw=4 tw=78 et :
@@ -37,7 +37,6 @@ has plugins => (
     lazy => 1,
     default => sub {
         my $self = shift;
-        my @plugins = @{ $self->zilla->plugins };
         my %args = (
             plugin_name => 'ModuleBuildTiny::Fallback',
             zilla => $self->zilla,
@@ -301,7 +300,7 @@ Dist::Zilla::Plugin::ModuleBuildTiny::Fallback - Build a Build.PL that uses Modu
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
