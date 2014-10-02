@@ -37,7 +37,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
     file: lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm
-    version: '0.008'
+    version: '0.009'
 requires:
   Dist::Zilla::Plugin::ModuleBuild: '0'
   Dist::Zilla::Plugin::ModuleBuildTiny: '0'
@@ -60,7 +60,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git
-version: '0.008'
+version: '0.009'
 x_Dist_Zilla:
   perl:
     version: '5.021003'
@@ -481,7 +481,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 9
       name: '@Author::ETHER/ModuleBuildTiny::Fallback'
-      version: '0.008'
+      version: '0.009'
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Author::ETHER/InstallGuide'
@@ -612,7 +612,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.008
+          tag: v0.009
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
