@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::ModuleBuildTiny::Fallback;
-# git description: v0.008-1-g3841fbe
-$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.009';
+# git description: v0.009-2-g5a5f4be
+$Dist::Zilla::Plugin::ModuleBuildTiny::Fallback::VERSION = '0.010';
 # ABSTRACT: Build a Build.PL that uses Module::Build::Tiny, falling back to Module::Build as needed
 # KEYWORDS: plugin installer Module::Build Build.PL toolchain legacy ancient backcompat
 # vim: set ts=8 sw=4 tw=78 et :
@@ -102,6 +102,10 @@ sub gather_files
         }
     }
 
+    # put the Module::Build::Tiny file back in the file list in case other
+    # plugins want to add to its content
+    if (my $file = $files{'Dist::Zilla::Plugin::ModuleBuildTiny'}) { push @{ $self->zilla->files }, $file }
+
     return;
 }
 
@@ -121,6 +125,9 @@ sub setup_installer
 
     my ($mb, $mbt) = $self->plugins;
 
+    # remove the MBT file that we left in since gather_files
+    if (my $file = $files{'Dist::Zilla::Plugin::ModuleBuildTiny'}) { $self->zilla->prune_file($file) }
+
     # let [ModuleBuild] create (or update) the Build.PL file and its content
     if (my $file = $files{'Dist::Zilla::Plugin::ModuleBuild'}) { push @{ $self->zilla->files }, $file }
 
@@ -128,7 +135,8 @@ sub setup_installer
     $mb->setup_installer;
 
     # find the file object, save its content, and delete it from the file list
-    my $mb_build_pl = first { $_->name eq 'Build.PL' } @{ $self->zilla->files };
+    my $mb_build_pl = $files{'Dist::Zilla::Plugin::ModuleBuild'}
+        || first { $_->name eq 'Build.PL' } @{ $self->zilla->files };
     $self->zilla->prune_file($mb_build_pl);
     my $mb_content = $mb_build_pl->content;
 
@@ -143,7 +151,8 @@ sub setup_installer
     $mbt->setup_installer;
 
     # find the file object, and fold [ModuleBuild]'s content into it
-    my $mbt_build_pl = first { $_->name eq 'Build.PL' } @{ $self->zilla->files };
+    my $mbt_build_pl = $files{'Dist::Zilla::Plugin::ModuleBuildTiny'}
+        || first { $_->name eq 'Build.PL' } @{ $self->zilla->files };
     my $mbt_content = $mbt_build_pl->content;
 
     # comment out the 'use' line; save the required version
@@ -300,7 +309,7 @@ Dist::Zilla::Plugin::ModuleBuildTiny::Fallback - Build a Build.PL that uses Modu
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 
