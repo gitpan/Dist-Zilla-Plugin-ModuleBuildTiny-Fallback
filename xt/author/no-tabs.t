@@ -13,6 +13,7 @@ my @files = (
     't/01-basic.t',
     't/02-two-plugins.t',
     't/03-arguments.t',
+    't/04-additional-content.t',
     'xt/author/00-compile.t',
     'xt/author/clean-namespaces.t',
     'xt/author/eol.t',

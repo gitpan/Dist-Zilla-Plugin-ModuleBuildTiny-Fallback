@@ -100,9 +100,10 @@ my %WriteMakefileArgs = (
     "Test::Deep" => 0,
     "Test::Fatal" => 0,
     "Test::More" => 0,
+    "Test::Requires" => 0,
     "if" => 0
   },
-  "VERSION" => "0.010",
+  "VERSION" => "0.011",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -128,6 +129,7 @@ my %FallbackPrereqs = (
   "Test::Deep" => 0,
   "Test::Fatal" => 0,
   "Test::More" => 0,
+  "Test::Requires" => 0,
   "if" => 0,
   "namespace::autoclean" => 0,
   "strict" => 0,
