@@ -14,7 +14,6 @@ build_requires:
   if: '0'
   perl: '5.006'
 configure_requires:
-  ExtUtils::MakeMaker: '0'
   Module::Build::Tiny: '0.039'
   perl: '5.006'
 dynamic_config: 0
@@ -40,7 +39,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
     file: lib/Dist/Zilla/Plugin/ModuleBuildTiny/Fallback.pm
-    version: '0.011'
+    version: '0.012'
 requires:
   Dist::Zilla::Plugin::ModuleBuild: '0'
   Dist::Zilla::Plugin::ModuleBuildTiny: '0'
@@ -63,7 +62,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-ModuleBuildTiny-Fallback.git
-version: '0.011'
+version: '0.012'
 x_Dist_Zilla:
   perl:
     version: '5.021005'
@@ -476,7 +475,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 9
       name: '@Author::ETHER/MakeMaker::Fallback'
-      version: '0.014'
+      version: '0.015'
     -
       class: Dist::Zilla::Plugin::ModuleBuildTiny::Fallback
       config:
@@ -499,7 +498,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 9
       name: '@Author::ETHER/ModuleBuildTiny::Fallback'
-      version: '0.011'
+      version: '0.012'
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Author::ETHER/InstallGuide'
@@ -526,7 +525,7 @@ x_Dist_Zilla:
           run:
             - "bash -c \"if [[ `dirname %d` != .build ]]; then test -e .ackrc && grep -q -- '--ignore-dir=%d' .ackrc || echo '--ignore-dir=%d' >> .ackrc; fi\""
       name: '@Author::ETHER/.ackrc'
-      version: '0.026'
+      version: '0.027'
     -
       class: Dist::Zilla::Plugin::Run::AfterBuild
       config:
@@ -534,7 +533,7 @@ x_Dist_Zilla:
           eval:
             - "if ('%d' =~ /^%n-[.[:xdigit:]]+$/) { unlink '.latest'; symlink '%d', '.latest'; }"
       name: '@Author::ETHER/.latest'
-      version: '0.026'
+      version: '0.027'
     -
       class: Dist::Zilla::Plugin::CheckStrictVersion
       name: '@Author::ETHER/CheckStrictVersion'
@@ -616,7 +615,7 @@ x_Dist_Zilla:
           eval:
             - "unlink 'README.md'"
       name: '@Author::ETHER/remove old READMEs'
-      version: '0.026'
+      version: '0.027'
     -
       class: Dist::Zilla::Plugin::Git::Commit
       config:
@@ -644,7 +643,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.011
+          tag: v0.012
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
@@ -673,7 +672,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Run::Role::Runner:
           run: REDACTED
       name: '@Author::ETHER/install release'
-      version: '0.026'
+      version: '0.027'
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@Author::ETHER/ConfirmRelease'

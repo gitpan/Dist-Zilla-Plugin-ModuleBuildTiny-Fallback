@@ -61,6 +61,7 @@ sub _merge_prereqs {
 
 my @include = qw(
   Module::Build
+  Dist::Zilla::Plugin::CheckBin
 );
 
 my @exclude = qw(

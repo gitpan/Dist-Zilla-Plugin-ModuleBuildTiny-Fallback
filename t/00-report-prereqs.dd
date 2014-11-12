@@ -1,7 +1,6 @@
 do { my $x = {
        'configure' => {
                         'requires' => {
-                                        'ExtUtils::MakeMaker' => '0',
                                         'Module::Build::Tiny' => '0.039',
                                         'perl' => '5.006'
                                       }
